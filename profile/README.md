@@ -17,7 +17,7 @@ graph TD
         sdk.(["项目开发工具包\n脚手架、后端生成的开放文件"]) --- sdk
 
     manager.
-        manager.([端管理后台]) --- manager
+        manager.([PC 端管理后台]) --- manager
 
     client(["客户端"])
         client --H5 客户端--- client-mobile
