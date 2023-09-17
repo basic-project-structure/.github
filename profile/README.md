@@ -1,5 +1,13 @@
 ## Hi there 👋
 
+**一个通用的基础架构示例**
+
+## 基本项目构成
+
+- app-center
+- manager-web
+- client-mobile
+
 <!--
 
 **Here are some ideas to get you started:**
