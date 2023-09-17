@@ -1,4 +1,4 @@
-# Hi there 👋
+# Basic-project-structure
 
 一个通用的基础架构示例
 
@@ -7,20 +7,11 @@
 <!-- https://mermaid.js.org/ -->
 
 ```mermaid
-graph LR
-A[basic-project]
-    A --应用服务中心--- center[center
-
-        项目后端
-        负责提供 api、rpc 等服务]
-
-    A --项目开发工具包--- sdk[sdk
-
-        开发工具、脚手架、后端生成的开放文件（api）
-    ]
-
+graph TD
+    A([basic-project])
+    A --应用服务中心--- center["center\n项目后端，负责提供 api、rpc 等服务"]
+    A --项目开发工具包--- sdk["sdk\n开发工具、脚手架、后端生成的开放文件"]
     A --管理后台--- manager[manager]
-
     A --客户端--- client[client]
 
     center --go 服务端--- go[center-go]
