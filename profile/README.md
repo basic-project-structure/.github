@@ -8,19 +8,22 @@
 
 ```mermaid
 graph TD
-    A([basic-project])
-    A --应用服务中心--- center["center\n项目后端，负责提供 api、rpc 等服务"]
-    A --项目开发工具包--- sdk["sdk\n开发工具、脚手架、后端生成的开放文件"]
-    A --管理后台--- manager[manager]
-    A --客户端--- client[client]
+    center(["应用服务中心\n项目后端，负责提供 api、rpc 等服务"])
+        center --go 服务端--- center-go
+        center --php 服务端--- center-php
+        center --java 服务端--- center-java
 
-    center --go 服务端--- go[center-go]
-    center --php 服务端--- php[center-php]
+    sdk.
+        sdk.(["项目开发工具包\n脚手架、后端生成的开放文件"]) --- sdk
 
-    client --手机 H5 客户端--- clientMobile[client-mobile]
-    client --Android 客户端--- clientAndroid[client-android]
-    client --iOS 客户端--- clientIOS[client-ios]
-    client --Flutter 客户端--- clientFlutter[client-flutter]
+    manager.
+        manager.([端管理后台]) --- manager
+
+    client(["客户端"])
+        client --H5 客户端--- client-mobile
+        client --Android 客户端--- clientAndroid[client-android]
+        client --iOS 客户端--- clientIOS[client-ios]
+        client --Flutter 客户端--- clientFlutter[client-flutter]
 ```
 
 <!--
