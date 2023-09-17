@@ -21,9 +21,9 @@ graph TD
 
     client(["客户端"])
         client --H5 客户端--- client-mobile
-        client --Android 客户端--- clientAndroid[client-android]
-        client --iOS 客户端--- clientIOS[client-ios]
-        client --Flutter 客户端--- clientFlutter[client-flutter]
+        client --Android 客户端--- client-android
+        client --iOS 客户端--- client-ios
+        client --Flutter 客户端--- client-flutter
 ```
 
 <!--
