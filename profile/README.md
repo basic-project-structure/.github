@@ -7,23 +7,38 @@
 <!-- https://mermaid.js.org/ -->
 
 ```mermaid
-graph TD
-    center(["应用服务中心\n项目后端，负责提供 api、rpc 等服务"])
-        center --go 服务端--- center-go
-        center --php 服务端--- center-php
-        center --java 服务端--- center-java
+graph LR;
 
-    sdk.
-        sdk.(["项目开发工具包\n脚手架、后端生成的开放文件"]) --- sdk
+    classDef red fill:#600
+    classDef green fill:#030
+    classDef yellow fill:#303
 
-    manager.
-        manager.([PC 端管理后台]) --- manager
+    BR1(bps-contractor-entry \n 包网 - 入口1):::yellow
+    BR2(bps-contractor-entry \n 包网 - 入口2):::yellow
+    BQ[bps-contractor-h5 \n 包网 - 前端]
+    
 
-    client(["客户端"])
-        client --H5 客户端--- client-mobile
-        client --Flutter 客户端--- client-flutter
-        client --Android 客户端--- client-android
-        client --iOS 客户端--- client-ios
+    FZ([Load Balance \n 业务集群 负载均衡]):::green
+    CDN([CDN \n 内容分发网络]):::green
+    API{{bps-core-api \n 核心 - API}}:::red
+
+
+    subgraph 包网
+        用户 --> BR1 --> BQ
+        主代理 & 子代理 --> 代理
+        承包商 & 代理 & 业务员 --> BR2
+        BDB[(包网数据库)]
+    end
+    BR2 -.-> CDN
+    BQ -.-> FZ
+
+
+    subgraph 总台
+        CDN --> bps-manager-contractor\n承包商-管理后台 & bps-manager-agent\n代理-管理后台 & bps-manager-salesman\n业务员-管理后台 --> FZ --> API
+        CDB[(核心数据库)]
+        超管 & 财务 & 运营 --> bps-manager-main\n总台-管理后台 --> API
+    end
+    API -.-> BDB & CDB
 ```
 
 <!--
